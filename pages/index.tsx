@@ -6,6 +6,7 @@ import ImportFromFile from '../components/ImportFromFile'
 import TimeSlider from '../components/TimeSlider'
 import TopPanel from '../components/top_panel/TopPanel'
 import BottomPanel from '../components/bottom_panel/BottomPanel'
+import ClkGraph from '../components/ClkGraph'
 
 const Row = styled.div`
   display: flex;
@@ -21,17 +22,17 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>ELE206 Simon Lab</title>
+        <title>ELE206 PUNC Lab</title>
         <link rel="icon" href="/PUwhite.svg" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}> ELE206 Simon - VCD Viewer </h1>
+        <h1 className={styles.title}> ELE206 PUNC - VCD Viewer </h1>
         <ImportFromFile setVCD={setVCD} />
 
         <TopPanel time={time} vcdObj={vcdObj} />
         <BottomPanel time={time} vcdObj={vcdObj} />
-
+        <ClkGraph vcdObj={vcdObj} time={time} />
         <TimeSlider vcdObj={vcdObj} time={time} setTime={setTime} />
       </main>
 

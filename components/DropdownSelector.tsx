@@ -1,8 +1,12 @@
 import React from 'react'
 import { Select } from 'antd';
+import styled from 'styled-components'
 
 const { Option } = Select;
 
+const Selector = styled(Select)`
+    width: 100%;
+`
 
 const DropdownSelector = (props) => {
     function handleChange(index) {
@@ -10,10 +14,9 @@ const DropdownSelector = (props) => {
     }
 
     return (
-        <Select
+        <Selector
             showSearch
             defaultValue="Set Me"
-            style={{ width: 240 }}
             onChange={handleChange}
             optionFilterProp="children"
             filterOption={(input, option) =>
@@ -26,7 +29,7 @@ const DropdownSelector = (props) => {
                     <Option value={index} key={index}> {value.signalName} </Option>
                 )
             }
-        </Select>
+        </Selector>
     )
 }
 
