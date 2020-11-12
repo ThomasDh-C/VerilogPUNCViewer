@@ -1,5 +1,11 @@
+/**
+ * Returns greatest array index for which t (time in array) < time (time on slider)
+ * @function
+ * @param {vcdObj} vcdObj - object of parsed VCD file
+ * @param {int} SignalAvailableIndex - index of selected signal
+ * @param {int} time - requested time by slider
+ * */
 const timeIndexCalc = (vcdObj, SignalAvailableIndex, time) => {
-    // find greatest array index for which t (time in array) < time (time on slider)
     let timeindex = 0
     if (vcdObj.hasOwnProperty('signal')) {
         const timeArray = vcdObj.signal[SignalAvailableIndex].wave

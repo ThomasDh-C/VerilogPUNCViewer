@@ -1,12 +1,16 @@
+/**
+ * A namespace.
+ * @namespace VCDParser
+ */
+
 const async = require('async');
 
 /**
  * Parse VCD text content and generate a valid JSON representation.
- * The function returns a promise unless a callback is provided.
- * @name VCDParser~parse
+ * The function returns a promise
  * @function
  * @param {string} content - The text content of the VCD file
- * @return {Promise<VCDParser~ParsedData>} Promise object that resolves with the parsed data
+ * @return {Promise<ParsedData>} Promise object that resolves with the parsed data
  */
 const parse = (content) => {
 	return new Promise((resolve, reject) => {
