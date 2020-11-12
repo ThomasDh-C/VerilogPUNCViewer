@@ -262,7 +262,7 @@ const parse = (content) => {
 				}
 				meta.endtime = currentTime.toString();
 				meta.scale = meta.timescale;
-				let obj = { meta, signal: signals };
+				let obj = { ...meta, signal: signals };
 				return resolve(
 					obj
 				);
