@@ -2,6 +2,7 @@ import React from 'react'
 import { Card } from 'antd';
 import DropdownSelector from '../DropdownSelector'
 import styled from 'styled-components'
+import timeIndexCalc from '../../utils/timeIndexCalc'
 
 const ModeViewer = styled.div`
     position: relative;
@@ -19,30 +20,22 @@ const CentredText = styled.p`
 
 const SignalCard = (props) => {
     const [SignalAvailableIndex, setSignalAvailableIndex] = React.useState(0)
+    let desiredSignal = "reg_n"
 
-    // find greatest array index for which t (time in array) < props.time (time on slider)
-    let timeindex = 0
-    if (props.vcdObj.hasOwnProperty('signal')) {
-        const timeArray = props.vcdObj.signal[SignalAvailableIndex].wave
-        while (timeindex < timeArray.length) {
-            if (props.time > timeArray[timeindex][0]) timeindex++
-            else break
-        }
-        if (timeindex == timeArray.length || props.time < timeArray[timeindex][0]) timeindex--
-    }
+    let timeindex = timeIndexCalc(props.vcdObj, SignalAvailableIndex, props.time)
 
     // get string of signal from array at timeindex
     const signalString = (props.vcdObj.hasOwnProperty('signal') ? props.vcdObj.signal[SignalAvailableIndex].wave[timeindex][1] : '0')
     const value = '0'.repeat(Math.abs(1 - signalString.length)) + signalString
 
-    let output = ""
-    if (value.charAt(0) == "0" && signalString.length < 2) output = "Easy mode"
-    if (value.charAt(0) == "1" && signalString.length < 2) output = "Hard mode"
+    let output = "Not Set"
+    if (value.charAt(0) == "0" && signalString.length < 2) output = "High"
+    if (value.charAt(0) == "1" && signalString.length < 2) output = "Low"
 
 
     return (
-        <Card type="inner" title="Difficulty Level - level" style={{ width: 300, marginRight: 30 }}>
-            <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} />
+        <Card type="inner" title="Reg_N - reg_n" style={{ width: 300, marginRight: 30 }}>
+            <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} desiredSignal={desiredSignal} />
             <ModeViewer level={value.charAt(0)}>
                 <CentredText>{output}</CentredText>
             </ModeViewer>
