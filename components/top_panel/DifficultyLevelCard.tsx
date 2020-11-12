@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card } from 'antd';
 import DropdownSelector from '../DropdownSelector'
 import styled from 'styled-components'
 import timeIndexCalc from '../../utils/timeIndexCalc'
+import autoSigSet from '../../utils/autoSigSet'
 
 const ModeViewer = styled.div`
     position: relative;
@@ -21,6 +22,11 @@ const CentredText = styled.p`
 const SignalCard = (props) => {
     const [SignalAvailableIndex, setSignalAvailableIndex] = React.useState(0)
     let desiredSignal = "reg_n"
+    
+    autoSigSet(props.vcdObj, desiredSignal, setSignalAvailableIndex)
+    console.log(SignalAvailableIndex)
+
+
 
     let timeindex = timeIndexCalc(props.vcdObj, SignalAvailableIndex, props.time)
 
@@ -35,7 +41,7 @@ const SignalCard = (props) => {
 
     return (
         <Card type="inner" title="Reg_N - reg_n" style={{ width: 300, marginRight: 30 }}>
-            <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} desiredSignal={desiredSignal} />
+            <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} desiredSignal={desiredSignal} SignalAvailableIndex={SignalAvailableIndex}/>
             <ModeViewer level={value.charAt(0)}>
                 <CentredText>{output}</CentredText>
             </ModeViewer>

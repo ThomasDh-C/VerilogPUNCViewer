@@ -16,7 +16,8 @@ const DropdownSelector = (props) => {
     return (
         <Selector
             showSearch
-            defaultValue="Set Me"
+            defaultValue="Set me"
+            value = {props.SignalAvailableIndex}
             onChange={handleChange}
             optionFilterProp="children"
             filterOption={(input, option) =>
