@@ -1,5 +1,5 @@
 import React from 'react'
-import VCDParser from 'vcd-parser'
+import parse from './vcd-parser'
 import styled from 'styled-components'
 
 const ThickBaseDiv = styled.div`
@@ -15,7 +15,7 @@ const ImportFromFile = (props) => {
     // parse data from input and store it
     const handleFileRead = (e) => {
         const content = fileReader.result;
-        VCDParser.parse(content)
+        parse(content)
             .then(parsedData => {
                 props.setVCD(parsedData)
             })
