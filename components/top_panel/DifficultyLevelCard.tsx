@@ -21,27 +21,24 @@ const CentredText = styled.p`
 
 const SignalCard = (props) => {
     const [SignalAvailableIndex, setSignalAvailableIndex] = React.useState(0)
+    const [autoSetSignal, setAuto] = React.useState(false)
+
     let desiredSignal = "reg_n"
-    
-    autoSigSet(props.vcdObj, desiredSignal, setSignalAvailableIndex)
-    console.log(SignalAvailableIndex)
-
-
+    autoSigSet(props.vcdObj, desiredSignal, setSignalAvailableIndex, setAuto)
 
     let timeindex = timeIndexCalc(props.vcdObj, SignalAvailableIndex, props.time)
-
     // get string of signal from array at timeindex
-    const signalString = (props.vcdObj.hasOwnProperty('signal') ? props.vcdObj.signal[SignalAvailableIndex].wave[timeindex][1] : '0')
-    const value = '0'.repeat(Math.abs(1 - signalString.length)) + signalString
-
+    const value = (props.vcdObj.hasOwnProperty('signal') ? props.vcdObj.signal[SignalAvailableIndex].wave[timeindex][1] : '')
     let output = "Not Set"
-    if (value.charAt(0) == "0" && signalString.length < 2) output = "High"
-    if (value.charAt(0) == "1" && signalString.length < 2) output = "Low"
+    if (value.charAt(0) == "x" && value.length == 1) output = "X"
+    if (value.charAt(0) == "z" && value.length == 1) output = "Z"
+    if (value.charAt(0) == "0" && value.length == 1) output = "High"
+    if (value.charAt(0) == "1" && value.length == 1) output = "Low"
 
 
     return (
         <Card type="inner" title="Reg_N - reg_n" style={{ width: 300, marginRight: 30 }}>
-            <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} desiredSignal={desiredSignal} SignalAvailableIndex={SignalAvailableIndex}/>
+            <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} desiredSignal={desiredSignal} SignalAvailableIndex={SignalAvailableIndex} autoSet={autoSetSignal} />
             <ModeViewer level={value.charAt(0)}>
                 <CentredText>{output}</CentredText>
             </ModeViewer>
