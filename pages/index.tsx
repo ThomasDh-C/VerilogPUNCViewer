@@ -5,6 +5,7 @@ import Head from 'next/head'
 import ImportFromFile from '../components/ImportFromFile'
 import TimeSlider from '../components/TimeSlider'
 import TopPanel from '../components/top_panel/TopPanel'
+import BottomPanel from '../components/bottom_panel/BottomPanel'
 
 const Row = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ const Home = () => {
         <ImportFromFile setVCD={setVCD} />
 
         <TopPanel time={time} vcdObj={vcdObj} />
-  
+        <BottomPanel time={time} vcdObj={vcdObj} />
         {/* Way too many points to show this ... could implement
         a brush chart in future https://apexcharts.com/javascript-chart-demos/line-charts/brush-chart/
         <ClkGraph vcdObj={vcdObj} time={time} /> */}
