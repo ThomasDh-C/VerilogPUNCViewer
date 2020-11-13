@@ -12,12 +12,11 @@ const DropdownSelector = (props) => {
     function handleChange(index) {
         props.setSignalAvailableIndex(index)
     }
-    // console.log(props.autoSet)
     return (
         <Selector
             showSearch
-            defaultValue="Set me"
             value={props.autoSet && props.SignalAvailableIndex}
+            disabled={props.autoSet}
             onChange={handleChange}
             optionFilterProp="children"
             filterOption={(input, option) =>
