@@ -1,11 +1,10 @@
-import { Card, Row, Col } from 'antd'
+import { Row, Col } from 'antd'
 import React from 'react'
 import styled from 'styled-components'
 import PcCurrentCard from './PcCurrentCard'
 import RegAssembly from './RegAssembly'
 import OpCodeCard from './OpCodeCard'
-import ResetCard from './ResetCard'
-import StatusLedCard from './StatusLedCard'
+
 
 
 

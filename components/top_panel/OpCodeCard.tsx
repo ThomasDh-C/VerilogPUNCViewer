@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Card } from 'antd';
 import DropdownSelector from '../DropdownSelector'
 import styled from 'styled-components'
@@ -31,11 +31,7 @@ const OpCodeCard = (props) => {
     const signalString = (props.vcdObj.hasOwnProperty('signal') ? props.vcdObj.signal[SignalAvailableIndex].wave[timeindex][1] : '')
     const value = '0'.repeat(Math.abs(4 - signalString.length)) + signalString
 
-
     let output = value
-    // if (signalString.length != 1) output = parseInt(value, 2)
-
-
 
     return (
         <Card type="inner" title="Opcode" style={{ width: '100%', marginRight: 30 }}>
