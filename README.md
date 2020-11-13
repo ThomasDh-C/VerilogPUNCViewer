@@ -14,7 +14,7 @@ Open [http://localhost:3000](http://localhost:3000)
 ## Structure
 This project is built using the React framework Next.js.
 General styling is implemented by Next.js css file, components are individually styled with styled-components.
-Verilog parsing is implented with the [vcd-parser package](https://github.com/ahmed-agiza/vcd-parser#readme)
+Verilog parsing is implented with a custom parser based on the [vcd-parser package](https://github.com/ahmed-agiza/vcd-parser#readme)
 
 Index.tsx manages all the components as this is a one-page web-app.
 
