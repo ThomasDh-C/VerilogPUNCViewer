@@ -15,7 +15,7 @@ const DropdownSelector = (props) => {
     return (
         <Selector
             showSearch
-            value={props.autoSet && props.SignalAvailableIndex}
+            value={props.SignalAvailableIndex}
             disabled={props.autoSet}
             onChange={handleChange}
             optionFilterProp="children"
