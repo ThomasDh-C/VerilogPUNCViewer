@@ -26,11 +26,11 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}> ELE206 PUNC - VCD Viewer </h1>
+        <h1 className={styles.title}> ELE206 PUnC - VCD Viewer </h1>
         <ImportFromFile setVCD={setVCD} />
 
         <TopPanel time={time} vcdObj={vcdObj} />
-        <BottomPanel time={time} vcdObj={vcdObj} />
+        {/* <BottomPanel time={time} vcdObj={vcdObj} /> */}
         {/* Way too many points to show this ... could implement
         a brush chart in future https://apexcharts.com/javascript-chart-demos/line-charts/brush-chart/
         <ClkGraph vcdObj={vcdObj} time={time} /> */}

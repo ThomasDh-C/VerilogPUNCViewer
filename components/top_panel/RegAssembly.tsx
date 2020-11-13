@@ -23,7 +23,7 @@ const SignalCard = (props) => {
     const [SignalAvailableIndex, setSignalAvailableIndex] = React.useState(0)
     const [autoSetSignal, setAuto] = React.useState(false)
 
-    let desiredSignal = "reg_n"
+    let desiredSignal = "reg_nd"
     autoSigSet(props.vcdObj, desiredSignal, setSignalAvailableIndex, setAuto)
 
     let timeindex = timeIndexCalc(props.vcdObj, SignalAvailableIndex, props.time)
@@ -37,7 +37,7 @@ const SignalCard = (props) => {
 
 
     return (
-        <Card type="inner" title="Reg_N - reg_n" style={{ width: 300, marginRight: 30 }}>
+        <Card type="inner" title="Reg_N - reg_n" style={{ width: "100%", marginRight: 30 }}>
             <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} desiredSignal={desiredSignal} SignalAvailableIndex={SignalAvailableIndex} autoSet={autoSetSignal} />
             <ModeViewer level={value.charAt(0)}>
                 <CentredText>{output}</CentredText>
