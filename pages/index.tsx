@@ -17,7 +17,7 @@ const Row = styled.div`
 const Home = () => {
   const [vcdObj, setVCD] = React.useState({})
   const [time, setTime] = React.useState(0)
-  console.log(vcdObj)
+
   return (
     <div className={styles.container}>
       <Head>
