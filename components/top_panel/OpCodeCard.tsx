@@ -11,7 +11,6 @@ const ModeViewer = styled.div`
     margin-top: 10px;
     border-radius:5px;
     border: 1px solid #d9d9d9;
-    background-color: ${props => props.level == "1" ? "#f0f0f0" : ""};
 `
 
 const CentredText = styled.p`
@@ -36,7 +35,7 @@ const OpCodeCard = (props) => {
     return (
         <Card type="inner" title="Opcode" style={{ width: '100%', marginRight: 30 }}>
             <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} desiredSignal={desiredSignal} SignalAvailableIndex={SignalAvailableIndex} autoSet={autoSetSignal} />
-            <ModeViewer level={value.charAt(0)}>
+            <ModeViewer>
                 <CentredText>{output}</CentredText>
             </ModeViewer>
         </Card>
