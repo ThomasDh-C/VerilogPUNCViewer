@@ -11,7 +11,6 @@ const BottomPanel = (props) => {
   const [state, setState] = useState({ activeKey: ['1'] })
 
   const callback = (key) => {
-    console.log(key);
     setState({
       activeKey: key,
     });
