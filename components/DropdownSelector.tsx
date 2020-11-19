@@ -12,6 +12,7 @@ const DropdownSelector = (props) => {
     function handleChange(index) {
         props.setSignalAvailableIndex(index)
     }
+
     return (
         <Selector
             showSearch
@@ -33,5 +34,5 @@ const DropdownSelector = (props) => {
     )
 }
 
-
-export default DropdownSelector
+const MemoDropdownSelector = React.memo(DropdownSelector)
+export default MemoDropdownSelector

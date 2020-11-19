@@ -36,6 +36,7 @@ const RfRow = (props) => {
             </Col>
         </Row>
     )
-
 }
-export default RfRow
+
+const MemoRfRow = React.memo(RfRow)
+export default MemoRfRow
