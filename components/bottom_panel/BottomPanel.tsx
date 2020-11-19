@@ -20,12 +20,12 @@ const BottomPanel = (props) => {
     <Collapse activeKey={state.activeKey} onChange={callback} style={{ width: "100%", marginTop: 16 }}>
       <Panel header="Registers" key="1">
         {state.activeKey.includes("1") && rfSigs.map((val, index) => {
-          return (<RfRow time={props.time} vcdObj={props.vcdObj} signalInterest={val} name={"Register " + index} />)
+          return (<RfRow time={props.time} vcdObj={props.vcdObj} signalInterest={val} name={"Register " + index} key={"r" + index} />)
         })}
       </Panel>
       <Panel header="Memory" key="2">
         {state.activeKey.includes("2") && memSigs.map((val, index) => {
-          return (<RfRow time={props.time} vcdObj={props.vcdObj} signalInterest={val} name={"Memory " + index} />)
+          return (<RfRow time={props.time} vcdObj={props.vcdObj} signalInterest={val} name={"Memory " + index} key={"m" + index} />)
         })}
       </Panel>
     </Collapse>
