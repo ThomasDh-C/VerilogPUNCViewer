@@ -34,7 +34,7 @@ const TimeSlider = (props) => {
                         style={{ margin: '0 16px' }}
                         value={props.time}
                         onChange={(value) => props.setTime(value)}
-                        step={1}
+                        step={50}
                     />
                 </Col>
             </Row>
