@@ -9,6 +9,12 @@ const RightPara = styled.p`
 text-align: right;
 `
 
+
+const Name = props => {
+    return <h4>{props.name}</h4>
+}
+const MemoName = React.memo(Name)
+
 const RfRow = (props) => {
     const [SignalAvailableIndex, setSignalAvailableIndex] = React.useState(0)
     const [autoSetSignal, setAuto] = React.useState(false)
@@ -23,10 +29,12 @@ const RfRow = (props) => {
 
     let output = value
 
+
+
     return (
         <Row gutter={16} style={{ width: "100%" }}>
             <Col span={6} >
-                <h4>{props.name}</h4>
+                <MemoName name={props.name} />
             </Col>
             <Col span={6}>
                 <DropdownSelector vcdObj={props.vcdObj} setSignalAvailableIndex={setSignalAvailableIndex} desiredSignal={desiredSignal} SignalAvailableIndex={SignalAvailableIndex} autoSet={autoSetSignal} />
